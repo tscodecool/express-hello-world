@@ -9,8 +9,11 @@ on:
 
 jobs:
   on-success:
+    name: push and deploy
     runs-on: ubuntu-latest
- 
+    strategy:
+      matrix:
+        node-version: [14.x]
   push_to_Docker_Hub:
     name: Push Images to DockerHub
     # The type of runner that the job will run on
@@ -19,7 +22,7 @@ jobs:
     steps:
       - name: echo
         run: echo "First workflow was a success"
-        
+
       - uses: actions/checkout@v2
 
       - name: setup node
