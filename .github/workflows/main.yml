@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI-CD
+name: CI-CD with test
 
 # Controls when the action will run. 
 on:
@@ -76,12 +76,12 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/express-demo:latest
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/express-demo-with-test:latest
           
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
           with:
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/express-demo:latest
+            image: ${{ secrets.DOCKERHUB_USERNAME }}/express-demo-with-test:latest
             run: |
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
