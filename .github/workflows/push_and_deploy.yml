@@ -1,9 +1,9 @@
-name: Push and deploy
+name: PushDeploy
 
 # Only trigger, when the build workflow succeeded
 on:
   workflow_run:
-    workflows: ["CI-CD with test"]
+    workflows: ["CI-CD"]
     types:
       - completed
   # Allows you to run this workflow manually from the Actions tab
